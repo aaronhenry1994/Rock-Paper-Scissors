@@ -9,8 +9,7 @@ function playGame() {
 function playRound(computerChoice) {
     // Setting up playerChoice vs computerChoice
 
-function playerChoice() {
-    console.log('Type rock, paper, or scissors.');
+    let playerChoice = prompt('Type rock, paper, or scissors.');
     if (playerChoice === computerChoice) {
         return console.log('This is a tie.');
     } else if (playerChoice === null) {
@@ -36,4 +35,4 @@ function computerChoice() {
 
         return item;
     }
-}}
+}

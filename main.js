@@ -3,42 +3,38 @@ const choices = ['rock', 'paper', 'scissors'];
 
 function playGame() {
     for(let i = 0; i<=5; i++) {
-        let playerChoice = enterUser;
-        playRound(playerChoice, randomIndex);
+        prompt('Type, rock, paper, or scissors.')
+        playRound();
     }
 }
 
-function playRound() {{
+function computerChoice() {
+    let randomIndex = Math.floor(Math.random() * choices.length);
+
+        // Get random Index
+        const item = choices[randomIndex];
+        
+        return item;
+        
+}
+
+function playRound(playerChoice, computerChoice) {{
     // Setting up playerChoice vs randomIndex
 
-    let playerChoice = prompt('Type rock, paper, or scissors.');
-
-    if (playerChoice == randomIndex) {
-        console.log(playerChoice);
-        return ('This is a tie.');
+    if (playerChoice === computerChoice) {
+        return console.log('This is a tie.');
     } else if (playerChoice === null) {
-        console.log(playerChoice);
-        return ('Maybe next time.');
-    } else if (playerChoice === 'rock' && randomIndex === 'scisssors') {
-        console.log(playerChoice);
-        return ('Congratuations, you win!');
-    } else if (playerChoice === 'paper' && randomIndex === 'rock') {
-        console.log(playerChoice);
-        return ('Congratulations, you win!');
-    } else if (playerChoice === 'scissors' && randomIndex === 'paper') {
-        console.log(playerChoice);
-        return ('Congratulations, you win!');
+        return console.log('Maybe next time.');
+    } else if (playerChoice === 'rock' && computerChoice === 'scisssors') {
+        return console.log('Congratuations, you win!');
+    } else if (playerChoice === 'paper' && computerChoice === 'rock') {
+        return console.log('Congratulations, you win!');
+    } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+        return console.log('Congratulations, you win!');
     } else {
-        console.log(playerChoice);
-        return ('Sorry, the computer wins.');
+        return console.log('Sorry, the computer wins.');
 }
 }
 }
 
-function randomIndex() { Math.floor(Math.random() * choices.length);
-
-// Get random Index
-const item = choices[randomIndex];
-
-return item;
-}
+playGame()

@@ -1,38 +1,44 @@
 // Choices of the game.
-const choices = ['rock', 'paper', 'scissors']
+const choices = ['rock', 'paper', 'scissors'];
 
 function playGame() {
     for(let i = 0; i<=5; i++) {
-        playRound()
+        let playerChoice = enterUser;
+        playRound(playerChoice, randomIndex);
     }
 }
-function playRound(computerChoice) {
-    // Setting up playerChoice vs computerChoice
+
+function playRound() {{
+    // Setting up playerChoice vs randomIndex
 
     let playerChoice = prompt('Type rock, paper, or scissors.');
-    if (playerChoice === computerChoice) {
-        return console.log('This is a tie.');
+
+    if (playerChoice == randomIndex) {
+        console.log(playerChoice);
+        return ('This is a tie.');
     } else if (playerChoice === null) {
-        return console.log('Maybe next time.');
-    } else if (playerChoice === 'rock' && computerChoice === 'scisssors') {
-        return console.log('Congratuations, you win!');
-    } else if (playerChoice === 'paper' && computerChoice === 'rock') {
-        return console.log('Congratulations, you win!.');
-    } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
-        return console.log('Congratulations, you win!');
+        console.log(playerChoice);
+        return ('Maybe next time.');
+    } else if (playerChoice === 'rock' && randomIndex === 'scisssors') {
+        console.log(playerChoice);
+        return ('Congratuations, you win!');
+    } else if (playerChoice === 'paper' && randomIndex === 'rock') {
+        console.log(playerChoice);
+        return ('Congratulations, you win!');
+    } else if (playerChoice === 'scissors' && randomIndex === 'paper') {
+        console.log(playerChoice);
+        return ('Congratulations, you win!');
     } else {
-        return console.log('Sorry, the computer wins.')
+        console.log(playerChoice);
+        return ('Sorry, the computer wins.');
 }
 }
+}
 
-function computerChoice() {
-    function getRandomChoice() {
-        // Gives randomc index value
-        const randomIndex = Math.floor(Math.random() * choices.length);
+function randomIndex() { Math.floor(Math.random() * choices.length);
 
-        // Get random Index
-        const item = choices[randomIndex];
+// Get random Index
+const item = choices[randomIndex];
 
-        return item;
-    }
+return item;
 }

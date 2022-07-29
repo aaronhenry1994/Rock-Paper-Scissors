@@ -3,8 +3,8 @@ const choices = ['rock', 'paper', 'scissors'];
 
 function playGame() {
     for(let i = 0; i<=5; i++) {
-        prompt('Type, rock, paper, or scissors.')
-        playRound();
+        let playerChoice = input = prompt('Type rock, paper, or scissors.');
+        playRound(playerChoice, computerChoice);
     }
 }
 
@@ -20,7 +20,6 @@ function computerChoice() {
 
 function playRound(playerChoice, computerChoice) {{
     // Setting up playerChoice vs randomIndex
-
     if (playerChoice === computerChoice) {
         return console.log('This is a tie.');
     } else if (playerChoice === null) {

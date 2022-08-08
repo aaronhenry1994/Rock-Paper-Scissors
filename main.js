@@ -13,10 +13,14 @@ function roundCounter(){
 
 const btn = document.querySelectorAll('#btn');
 btn.forEach((btn) => {
-        btn.addEventListener('click', () => {
-                console.log();
+        btn.addEventListener('click', handleClick, () => {
+                playGame();
         });
 });
+
+function handleClick() {
+        playGame(this.textContent)
+}
 
 document.getElementById('whoWon').addEventListener('click', function() {
     document.getElementById('returnStatement').textContent = "";
@@ -33,7 +37,7 @@ function whoWon() {
                 return winner;
 }
 
-function playGame(computerChoice) {
+function playGame(handleClick, computerChoice) {
         if (btn === computerChoice) {
         return console.log('This is a tie.');
     } else if (btn === 'rock' && computerChoice === 'scissors') {

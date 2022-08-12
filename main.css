@@ -1,5 +1,5 @@
-.results {
+.result-box {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    border-color: black;
+    border-radius: 1rem;
 }

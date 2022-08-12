@@ -16,7 +16,7 @@ btn0.addEventListener('click', playerChoice, computerChoice, () => {
         (choices[0]);
 })
 
-btn1.addEventListener('click', playerChoice, computerChoice, () => {
+btn1.addEventListener('click', playerChoice, () => {
         console.log(choices[1]);
 })
 

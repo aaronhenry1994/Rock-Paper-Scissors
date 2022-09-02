@@ -1,6 +1,13 @@
+// Game building blocks and logic
 const choices = ['rock', 'paper', 'scissors']
 
-function ComputerChoice(choices) {
+function playerChoice(buttonClicked, choices) {
+  
+  
+  return playerInput
+}
+
+function computerChoice(choices) {
   const randomIndex = Math.floor(Math.random() * choices.length);
 
   const item = choices[randomIndex];
@@ -8,64 +15,42 @@ function ComputerChoice(choices) {
   return item;
 }
 
-const result = ComputerChoice(choices);
-console.log(result);
+const computerResult = computerChoice(choices);
 
-let playerChoice = prompt('Please write rock, paper, or scissors.')
-
-console.log(playerChoice);
- 
-function playRound(playerChoice, result) {
-  if (playerChoice === null) {
-    return 'Maybe next time.'
+function playRound(playerChoice, computerResult) {
+  if (playerChoice === 'rock' && computerResult === 'scissors') {
+    return console.log('You win!');
+  } if (playerChoice === 'paper' && computerResult === 'rock') {
+    return console.log('You win!');
+  } if (playerChoice === 'scissors' && computerResult === 'paper') {
+    return console.log('You win!');
+  } if (playerChoice === 'rock' && computerResult === 'paper') {
+    return console.log('You lose!');
+  } if (playerChoice === 'paper' && computerResult === 'scissors') {
+    return console.log('You lose!');
+  } if (playerChoice === 'scissors' && computerResult === 'rock') {
+    return console.log('You lose!');
   }
-  if (playerChoice === result) {
-    return 'This is a tie';
-  }
-  if (playerChoice === 'rock' && result === 'scissors') {
-    return 'You win!';
-  }
-  if (playerChoice === 'paper' && result === 'rock') {
-    return 'You win!';
-  }
-  if (playerChoice === 'scissors' && result === 'paper') {
-    return 'You win!';
-  }
-  if (playerChoice === 'rock' && result === 'paper') {
-    return 'The computer wins!';
-  }
-  if (playerChoice === 'paper' && result === 'scissors') {
-    return 'The computer wins!';
-  }
-  if (playerChoice === 'scissors' && result === 'rock') {
-    return 'The computer wins!';
-  }
-};
-
-const winner = playRound(playerChoice, result);
-
-function game() {
-  for (let i = 0; i <= 5; i++) {
-    let playerChoice = prompt('Please write rock, paper, or scissors.')
-    playRound();
-  }
-  logWins();
 }
 
-function logWins(winner) {
-  let playerScore = 0;
-  let computerScore = 0;
+// UI
+const buttons = document.querySelectorAll('button');
 
-  if (winner === playerChoice) {
-    ++playerScore;
-  }
-  if (winner === result) {
-    ++computerScore;
-  }
-};
+function buttonClicked() {
+  const playerSelection = document.getElementById('playerChoice').textContent = 'You have chosen ' + playerChoice + '';
 
-console.log(logWins);
+  const computerSelection = document.getElementById('computerChoice').textContent = 'The computer has chosen ' + computerResult + '';
+}
 
-game(playRound);
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    console.log(button.id.toString);
+    buttonClicked();
+    playRound();
 
-console.log(winner);
+  });
+});
+
+
+
+playRound();

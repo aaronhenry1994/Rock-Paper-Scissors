@@ -1,5 +1,20 @@
-.result-box {
+.flex-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+.scoreBox {
+    display: flex;
+    border-width: 4rem;
+    border-radius: 5rem;
     border-color: black;
-    border-radius: 1rem;
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,10 +1,9 @@
 // Game building blocks and logic
 const choices = ['rock', 'paper', 'scissors']
 
-function playerChoice(buttonClicked, choices) {
-  
-  
-  return playerInput
+function playGame(playRound) {
+  let roundsPlayed = 0;
+  for (let i = 0; i < 5; i++);
 }
 
 function computerChoice(choices) {
@@ -17,18 +16,18 @@ function computerChoice(choices) {
 
 const computerResult = computerChoice(choices);
 
-function playRound(playerChoice, computerResult) {
-  if (playerChoice === 'rock' && computerResult === 'scissors') {
+function playRound(buttons, computerResult) {
+  if (buttons === 'rock' && computerResult === 'scissors') {
     return console.log('You win!');
-  } if (playerChoice === 'paper' && computerResult === 'rock') {
+  } if (buttons === 'paper' && computerResult === 'rock') {
     return console.log('You win!');
-  } if (playerChoice === 'scissors' && computerResult === 'paper') {
+  } if (buttons === 'scissors' && computerResult === 'paper') {
     return console.log('You win!');
-  } if (playerChoice === 'rock' && computerResult === 'paper') {
+  } if (buttons === 'rock' && computerResult === 'paper') {
     return console.log('You lose!');
-  } if (playerChoice === 'paper' && computerResult === 'scissors') {
+  } if (buttons === 'paper' && computerResult === 'scissors') {
     return console.log('You lose!');
-  } if (playerChoice === 'scissors' && computerResult === 'rock') {
+  } if (buttons === 'scissors' && computerResult === 'rock') {
     return console.log('You lose!');
   }
 }
@@ -36,21 +35,22 @@ function playRound(playerChoice, computerResult) {
 // UI
 const buttons = document.querySelectorAll('button');
 
-function buttonClicked() {
-  const playerSelection = document.getElementById('playerChoice').textContent = 'You have chosen ' + playerChoice + '';
-
-  const computerSelection = document.getElementById('computerChoice').textContent = 'The computer has chosen ' + computerResult + '';
-}
-
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    console.log(button.id.toString);
-    buttonClicked();
+
+    let playerInput = button.id;
+
+    const playerSelection = document.getElementById('playerChoice').textContent = 'You have chosen ' + playerInput + '';
+
+    const computerSelection = document.getElementById('computerChoice').textContent = 'The computer has chosen ' + computerResult + '';
+
     playRound();
 
   });
 });
 
+const rockBtn = document.getElementById('rock');
+const paperBtn = document.getElementById('paper');
+const sciBtn = document.getElementById('scissors');
 
-
-playRound();
+playGame(playRound);

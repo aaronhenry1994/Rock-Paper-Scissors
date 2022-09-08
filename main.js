@@ -33,6 +33,15 @@ function playRound(buttons, computerResult) {
 }
 
 // UI
+function updatePlayerScore(playRound) {
+  let playerScore = 0;
+  
+}
+
+function updateComputerScore(playRound) {
+
+}
+
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
@@ -40,11 +49,17 @@ buttons.forEach((button) => {
 
     let playerInput = button.id;
 
-    const playerSelection = document.getElementById('playerChoice').textContent = 'You have chosen ' + playerInput + '';
+    let computerResult = computerChoice(choices);
 
-    const computerSelection = document.getElementById('computerChoice').textContent = 'The computer has chosen ' + computerResult + '';
+    const playerSelection = document.getElementById('playerChoice').textContent = 'You have chosen: ' + playerInput + '';
 
-    playRound();
+    const computerSelection = document.getElementById('computerChoice').textContent = 'The computer has chosen: ' + computerResult + '';
+
+    const playerScore = document.getElementById('playerScore').textContent = 'Player Score: 0' + updatePlayerScore + '';
+
+    const computerScore = document.getElementById('computerScore').textContent = 'Computer Score: 0' + updateComputerScore + '';
+
+    playGame(playRound);
 
   });
 });

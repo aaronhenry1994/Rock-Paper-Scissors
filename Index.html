@@ -11,16 +11,21 @@
     <body>
         <div class="flex-container">
             <h1>Rock Paper Scissors</h1>
-                <button class="rock" id="btn0">Rock</button>
-                <button class="paper" id="btn1">Paper</button>
-                <button id="btn2">Scissors</button>
-            <h1 id="roundCounter">Round: 1</h1>
-        </div>
-        <div class="result-box">
-            <p id="result"></p>
-            <h3>You: 0</h3>
-            <h3>Computer: 0</h3>
-        </div>
+            <div id="game">
+                <h2 id="round">Round: 0</h2>
+                <h3 id="playerScore">Your Score: </h3>
+                <h3 id="computerScore">Computer Score:</h3>
+                <div id="playerChoice"><p>You have chosen:</p></div>
+                <div id="computerChoice"><p>The computer has chosen:</p></div>
+                <div id="resultText"><p>Result:</p></div>
+            </div>
+            <div id="reset"></div>
+                <button id="resetBtn">Reset the game</button>
+            <div id="container">
+                <button id="rock">Rock</button>
+                <button id="paper">Paper</button>
+                <button id="scissors">Scissors</button>
+            </div>
     <script src = "main.js"></script>
     </body>
 </html >

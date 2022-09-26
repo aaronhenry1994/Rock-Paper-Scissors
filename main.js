@@ -1,85 +1,95 @@
-// Choices of the game.
-const choices = ['rock', 'paper', 'scissors'];
+// Game building blocks and logic
+const choices = ['Rock', 'Paper', 'Scissors']
 
-console.log(choices)
-console.log(choices[0])
-console.log(choices[1])
-console.log(choices[2])
+let currentRound = 0;
 
-const btn0 = document.querySelector('#btn0');
-const btn1 = document.querySelector('#btn1');
-const btn2 = document.querySelector('#btn2');
+function playGame(playRound) {
+  for (let i = 0; i < 5; i++);
+  if (playerScore === 5) {
+    return 'Congratuations, you won!'
+  }
+  if (computerScore === 5) {
+    return 'Sorry, I win.'
+  }
+}
 
+function showButton(playGame) {
+  if (playerScore === 5) {
+    return resetBtn = document.getElementById('resetBtn').hidden = false;
+  }
+  if (computerScore === 5) {
+    return resetBtn = document.getElementById('resetBtn'). hidden = false;
+  }
+}
 
+function computerChoice(choices) {
+  const randomIndex = Math.floor(Math.random() * choices.length);
 
-btn0.addEventListener('click', playerChoice, computerChoice, () => {
-        (choices[0]);
-})
+  const item = choices[randomIndex];
 
-btn1.addEventListener('click', playerChoice, computerChoice, () => {
-        console.log(choices[1]);
-})
+  return item;
+}
 
-btn2.addEventListener('click', playerChoice, computerChoice, () => {
-        (choices[2]);
-})
+const computerResult = computerChoice(choices);
 
-let round = 0;
+function playRound(playerInput, computerResult) {
+  if (playerInput === 'Rock' && computerResult === 'Scissors') {
+    ++playerScore;
+    return 'You win!';
+  } if (playerInput === 'Paper' && computerResult === 'Rock') {
+    ++playerScore;
+    return 'You win!';
+  } if (playerInput === 'Scissors' && computerResult === 'Paper') {
+    ++playerScore;
+    return 'You win!';
+  } if (playerInput === 'Rock' && computerResult === 'Paper') {
+    ++computerScore;
+    return 'You lose!';
+  } if (playerInput === 'Paper' && computerResult === 'Scissors') {
+    ++computerScore;
+    return 'You lose!';
+  } if (playerInput === 'Scissors' && computerResult === 'Rock') {
+    ++computerScore;
+    return 'You lose!';
+  }
+  if (playerInput === computerResult) {
+    return 'This is a tie, try again.'
+  }
+};
+
+// UI
 let playerScore = 0;
 let computerScore = 0;
 
-let winner;
+const btns = document.querySelectorAll('button');
+let playerInput;
 
-function roundCounter(){
+btns.forEach((button) => {
+  button.addEventListener('click', (event) => {
 
-        round += 1;
-}
+    playerInput = button.textContent;
 
+    let computerResult = computerChoice(choices);
 
- function playerChoice(computerChoice) {
-        
-        if (playerChoice == choices[0] && computerChoice == choices[1]) {
-                return console.log('You won!');
-        }
-        if (playerChoice === choices[1] && computerChoice === choices[0]) {
-                return console.log('You won!');
-        }
-        if (playerChoice == choices[2] && computerChoice === choices[1]) {
-                return console.log('You won!');
-        }
-        if (playerChoice === computerChoice) {
-                return console.log('This is a tie.');
-};
-};
+    let result = playRound(playerInput, computerResult);
 
-function computerChoice() {
-    Math.random(Math.floor() * choices.length);
-        if (choices[0]) {
-                return console.log('rock');
-        }
-        else if (choices[1]) {
-                return console.log('paper');
-        }
-        else if (choices[2]) {
-                return console.log('scissors');
-        }
-        if (playerChoice === choices[2] && computerChoice === choices[0]) {
-                return console.log('Computer wins!');
-        }
-        if (playerChoice === choices[0] && computerChoice === choices[1]) {
-                return console.log('Computer wins!');
-        }
-        if (playerChoice === choices[1] && computerChoice === choices[2]) {
-                return console.log('Computer wins!');
-        }
-        if (playerChoice === computerChoice) {
-                return console.log('This is a tie.');
-        }
-};
+    ++currentRound;
 
-function playGame(playerChoice, computerChoice) {
-        return
-}
+    playGame(playRound);
 
-playGame;
+    showButton(playGame);
 
+    const playerScoreDisplay = document.getElementById('playerScore').textContent = 'Player Score: ' + playerScore + '';
+
+    const computerScoreDisplay = document.getElementById('computerScore').textContent = 'Computer Score: ' + computerScore + '';
+
+    const playerSelection = document.getElementById('playerChoice').textContent = 'You have chosen: ' + playerInput + '';
+
+    const computerSelection = document.getElementById('computerChoice').textContent = 'The computer has chosen: ' + computerResult + '';
+
+    const resultText = document.getElementById('resultText').textContent = 'Result: ' + result + '';
+
+    const round = document.getElementById('round').textContent = 'Round: ' + currentRound + '';
+
+  });
+});

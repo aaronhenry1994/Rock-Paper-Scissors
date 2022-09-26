@@ -1,9 +1,25 @@
 // Game building blocks and logic
-const choices = ['rock', 'paper', 'scissors']
+const choices = ['Rock', 'Paper', 'Scissors']
+
+let currentRound = 0;
 
 function playGame(playRound) {
-  let roundsPlayed = 0;
   for (let i = 0; i < 5; i++);
+  if (playerScore === 5) {
+    return 'Congratuations, you won!'
+  }
+  if (computerScore === 5) {
+    return 'Sorry, I win.'
+  }
+}
+
+function showButton(playGame) {
+  if (playerScore === 5) {
+    return resetBtn = document.getElementById('resetBtn').hidden = false;
+  }
+  if (computerScore === 5) {
+    return resetBtn = document.getElementById('resetBtn'). hidden = false;
+  }
 }
 
 function computerChoice(choices) {
@@ -16,56 +32,64 @@ function computerChoice(choices) {
 
 const computerResult = computerChoice(choices);
 
-function playRound(buttons, computerResult) {
-  if (buttons === 'rock' && computerResult === 'scissors') {
-    return console.log('You win!');
-  } if (buttons === 'paper' && computerResult === 'rock') {
-    return console.log('You win!');
-  } if (buttons === 'scissors' && computerResult === 'paper') {
-    return console.log('You win!');
-  } if (buttons === 'rock' && computerResult === 'paper') {
-    return console.log('You lose!');
-  } if (buttons === 'paper' && computerResult === 'scissors') {
-    return console.log('You lose!');
-  } if (buttons === 'scissors' && computerResult === 'rock') {
-    return console.log('You lose!');
+function playRound(playerInput, computerResult) {
+  if (playerInput === 'Rock' && computerResult === 'Scissors') {
+    ++playerScore;
+    return 'You win!';
+  } if (playerInput === 'Paper' && computerResult === 'Rock') {
+    ++playerScore;
+    return 'You win!';
+  } if (playerInput === 'Scissors' && computerResult === 'Paper') {
+    ++playerScore;
+    return 'You win!';
+  } if (playerInput === 'Rock' && computerResult === 'Paper') {
+    ++computerScore;
+    return 'You lose!';
+  } if (playerInput === 'Paper' && computerResult === 'Scissors') {
+    ++computerScore;
+    return 'You lose!';
+  } if (playerInput === 'Scissors' && computerResult === 'Rock') {
+    ++computerScore;
+    return 'You lose!';
   }
-}
+  if (playerInput === computerResult) {
+    return 'This is a tie, try again.'
+  }
+};
 
 // UI
-function updatePlayerScore(playRound) {
-  let playerScore = 0;
-  
-}
+let playerScore = 0;
+let computerScore = 0;
 
-function updateComputerScore(playRound) {
+const btns = document.querySelectorAll('button');
+let playerInput;
 
-}
+btns.forEach((button) => {
+  button.addEventListener('click', (event) => {
 
-const buttons = document.querySelectorAll('button');
-
-buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-
-    let playerInput = button.id;
+    playerInput = button.textContent;
 
     let computerResult = computerChoice(choices);
+
+    let result = playRound(playerInput, computerResult);
+
+    ++currentRound;
+
+    playGame(playRound);
+
+    showButton(playGame);
+
+    const playerScoreDisplay = document.getElementById('playerScore').textContent = 'Player Score: ' + playerScore + '';
+
+    const computerScoreDisplay = document.getElementById('computerScore').textContent = 'Computer Score: ' + computerScore + '';
 
     const playerSelection = document.getElementById('playerChoice').textContent = 'You have chosen: ' + playerInput + '';
 
     const computerSelection = document.getElementById('computerChoice').textContent = 'The computer has chosen: ' + computerResult + '';
 
-    const playerScore = document.getElementById('playerScore').textContent = 'Player Score: 0' + updatePlayerScore + '';
+    const resultText = document.getElementById('resultText').textContent = 'Result: ' + result + '';
 
-    const computerScore = document.getElementById('computerScore').textContent = 'Computer Score: 0' + updateComputerScore + '';
-
-    playGame(playRound);
+    const round = document.getElementById('round').textContent = 'Round: ' + currentRound + '';
 
   });
 });
-
-const rockBtn = document.getElementById('rock');
-const paperBtn = document.getElementById('paper');
-const sciBtn = document.getElementById('scissors');
-
-playGame(playRound);

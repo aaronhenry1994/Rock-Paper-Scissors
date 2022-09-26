@@ -11,21 +11,16 @@
     <body>
         <div class="flex-container">
             <h1>Rock Paper Scissors</h1>
-            <div id="Rounds">
-                <h2>Round</h2>
-                <div id="currentRound"></div>
-            </div>
-            <div id="scoreBox">
-                <h2>Score</h2>
-                <div id="roundWinner"></div>
-                <div id="playerScore"><p>Player Score: </p></div>
-                <div id="computerScore"><p>Computer Score: </p></div>
-            </div>
-            <div id="choice-display">
-                <h3>Choice Display</h3>
+            <div id="game">
+                <h2 id="round">Round: 0</h2>
+                <h3 id="playerScore">Your Score: </h3>
+                <h3 id="computerScore">Computer Score:</h3>
                 <div id="playerChoice"><p>You have chosen:</p></div>
                 <div id="computerChoice"><p>The computer has chosen:</p></div>
+                <div id="resultText"><p>Result:</p></div>
             </div>
+            <div id="reset"></div>
+                <button id="resetBtn">Reset the game</button>
             <div id="container">
                 <button id="rock">Rock</button>
                 <button id="paper">Paper</button>
